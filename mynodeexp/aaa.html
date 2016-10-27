@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js"></script>
+</head>
+
+<body>
+    <button class="putin">提交</button>
+    <button class="getout">获取</button>
+    <script>
+        $('.putin').click(function() {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/save",
+                data: {
+                    name: 'woqu',
+                    age: 28,
+                    email: '163@qq.com'
+                },
+                dataType: "json",
+                async: true,
+                success: function(data) {
+
+                },
+                error: function(data) {
+                    alert("服务器错误,操作失败");
+                },
+            });
+        })
+        $('.getout').click(function() {
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8080/requirt",
+                data: {},
+                dataType: "json",
+                async: true,
+                success: function(data) {
+
+                },
+                error: function(data) {
+                    alert("服务器错误,操作失败");
+                },
+            });
+        })
+    </script>
+</body>
+
+</html>
