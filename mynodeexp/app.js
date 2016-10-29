@@ -8,6 +8,7 @@ var port = process.env.PORT || 8080; //设置端口
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(express.static(__dirname + '/'));	//	静态资源调用
 var db = mongoose.connect("mongodb://localhost/test");
 db.connection.on("error", function(error) {
     console.log("数据库连接失败：" + error);
